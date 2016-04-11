@@ -4,6 +4,9 @@ function [newBin, newBatt] = overlapBitor(B, batt)
 % B has three levels, we're overlapping levels two and three. 
 % 
 
+% Part of the matlab.vornoiSegmentation package hosted at:
+% <https://github.com/alonsoJASL/matlab.voronoiSegmentation.git>
+
 Q = changeOverlapRepresentation(bwlabeln(B(:,:,3)));
 Q2 = changeOverlapRepresentation(Q);
 Q3 = changeOverlapRepresentation(Q2);

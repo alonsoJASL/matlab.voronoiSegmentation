@@ -1,9 +1,15 @@
 function [fakeRed, fakeNuclei, fakeAtt] = findMissingNuclei(plainRed, plainGreen)
 %       FIND MISSING NUCLEI (ON RED CHANNEL)
-% Function that finds the (possibly) missing nuclei from an RGB image of
-% cells (Macrophages). 
 %
-% 
+% Function that finds the (possibly) missing nuclei from an RGB image of
+% cells (Macrophages).
+%
+% USAGE:
+%   [fakeRed, fakeNuclei, fakeAtt] = findMissingNuclei(plainRed, plainGreen)
+%
+
+% Part of the matlab.vornoiSegmentation package hosted at:
+% <https://github.com/alonsoJASL/matlab.voronoiSegmentation.git>
 
 fakeRed = plainRed;
 im = plainGreen;

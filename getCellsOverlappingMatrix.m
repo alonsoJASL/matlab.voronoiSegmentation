@@ -25,6 +25,9 @@ function [connectionMatrix] = getCellsOverlappingMatrix(groundTruth, att)
 %                       interacions.
 % 
 
+% Part of the matlab.vornoiSegmentation package hosted at:
+% <https://github.com/alonsoJASL/matlab.voronoiSegmentation.git>
+
 if nargin < 2
     sizeGT = size(groundTruth);
     att.Height = sizeGT(1);

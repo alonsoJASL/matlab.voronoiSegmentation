@@ -1,6 +1,15 @@
 function [dataL, att] = voronoiLabelling(plainRed, plainGreen)
-% 
+%                       VORNONOI LABELLING
 %
+% Label the cells from the green channel (plainGreen) in order to match 
+% the cells found on the red channel (plainRed).
+%
+% USAGE:
+%       [dataL, att] = voronoiLabelling(plainRed, plainGreen)
+% 
+
+% Part of the matlab.vornoiSegmentation package hosted at:
+% <https://github.com/alonsoJASL/matlab.voronoiSegmentation.git>
 
 regs = regionprops('table', plainRed, 'Centroid', 'Area', ...
     'MajorAxisLength','MinorAxisLength');

@@ -5,6 +5,12 @@ function [n] = getPrimes(N,nextPrime)
 % that comes after N (e.g. N=5 would return n=7).
 %
 
+% Part of the matlab.vornoiSegmentation package hosted at:
+% <https://github.com/alonsoJASL/matlab.voronoiSegmentation.git>,
+%
+% also found on the package matlab.manualSegmentation hosted at: 
+% <https://github.com/alonsoJASL/matlab.manualSegmentation.git>
+%
 if nargin < 2
     nextPrime = false;
 end

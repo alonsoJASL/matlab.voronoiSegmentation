@@ -1,6 +1,16 @@
 function [artNuclei, newImage] = getArtificialNuclei(im, center, Area)
 %           GET ARTIFICIAL NUCLEI FROM CENROID AND AREA
 % 
+% Finds the possible locations of nuclei in the red channel that might have
+% not been picked up by the segmentation (or were not annotated in the ground
+% truth). This enables a better labelling of the overlapping cells.
+%
+% USAGE:
+%      [artNuclei, newImage] = getArtificialNuclei(im, center, Area)
+%
+
+% Part of the matlab.vornoiSegmentation package hosted at:
+% <https://github.com/alonsoJASL/matlab.voronoiSegmentation.git>
 
 [imageSizeY,imageSizeX] = size(im);
 

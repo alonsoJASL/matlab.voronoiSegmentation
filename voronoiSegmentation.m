@@ -2,11 +2,16 @@ function [dataLa, labAtt] = voronoiSegmentation(X, xatt)
 %   OVERLAPPING CELLS (SHITTY) SEGMENTATION USING VORONOI DIAGRAMS
 % 
 % Segmentation of overlapping datasets using a simple voronoi diagram to
-% seggregate one cell from the other. 
+% seggregate one ovrelapping cell from the other. 
+%
+% USAGE:
+%           [dataLa] = voronoiSegmentation(X, xatt)
+%           [dataLa, labAtt] = voronoiSegmentation(X, xatt)
 % 
 
-% Segment red channel (blur, then segment)
-% Also, segment green channel
+% Part of the matlab.vornoiSegmentation package hosted at:
+% <https://github.com/alonsoJASL/matlab.voronoiSegmentation.git>
+
 red = X(:,:,1);
 green = X(:,:,2);
 
