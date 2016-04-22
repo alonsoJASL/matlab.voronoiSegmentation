@@ -12,7 +12,7 @@ Q2 = changeOverlapRepresentation(Q);
 Q3 = changeOverlapRepresentation(Q2);
 Q4 = Q3>0;
 
-R = changeOverlapRepresentation(dataBin(:,:,2));
+R = changeOverlapRepresentation(B(:,:,2));
 for q=1:size(Q4,3)
     batt.labels(end+1) = getPrimes(max(unique(R)),1);
     R(:,:,end+1) = getPrimes(max(unique(R)),1).*Q4(:,:,q);
