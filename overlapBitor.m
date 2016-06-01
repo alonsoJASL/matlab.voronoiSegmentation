@@ -7,20 +7,28 @@ function [newBin, newBatt] = overlapBitor(B, batt)
 % Part of the matlab.vornoiSegmentation package hosted at:
 % <https://github.com/alonsoJASL/matlab.voronoiSegmentation.git>
 
-Q = changeOverlapRepresentation(bwlabeln(B(:,:,3)));
-Q2 = changeOverlapRepresentation(Q);
-Q3 = changeOverlapRepresentation(Q2);
-Q4 = Q3>0;
+if length(unique(B(:,:,3)))>1
 
-R = changeOverlapRepresentation(B(:,:,2));
-for q=1:size(Q4,3)
-    batt.labels(end+1) = getPrimes(max(unique(R)),1);
-    R(:,:,end+1) = getPrimes(max(unique(R)),1).*Q4(:,:,q);
+    
+    
+    Q = changeOverlapRepresentation(bwlabeln(B(:,:,3)));
+    Q2 = changeOverlapRepresentation(Q);
+    Q3 = changeOverlapRepresentation(Q2);
+    Q4 = Q3>0;
+    
+    R = changeOverlapRepresentation(B(:,:,2));
+    for q=1:size(Q4,3)
+        batt.labels(end+1) = getPrimes(max(unique(R)),1);
+        R(:,:,end+1) = getPrimes(max(unique(R)),1).*Q4(:,:,q);
+    end
+    
+    R2 = changeOverlapRepresentation(R);
+    
+    newBin = R2;
+    
+else
+    newBin = B(:,:,2);
 end
-
-R2 = changeOverlapRepresentation(R);
-
-newBin = R2;
 
 if nargout > 1
     newBatt = batt;
