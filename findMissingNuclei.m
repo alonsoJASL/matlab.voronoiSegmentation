@@ -50,7 +50,11 @@ for indx=1:n
 end
 
 if nargout > 1
-    fakeNuclei = max(artificialNuclei1,[],3)>0;
+    if size(binRegs,1)>1
+        fakeNuclei = max(artificialNuclei1,[],3)>0;
+    else
+        fakeNuclei = zeros(size(plainRed));
+    end
     if nargout > 2
         fakeAtt.regs = regionprops('table',fakeNuclei);
         fakeAtt.numArtificial = size(fakeAtt.regs,1);
