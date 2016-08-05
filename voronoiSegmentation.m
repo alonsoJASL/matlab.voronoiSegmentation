@@ -12,24 +12,7 @@ function [dataLa, labAtt] = voronoiSegmentation(X, xatt)
 % Part of the matlab.vornoiSegmentation package hosted at:
 % <https://github.com/alonsoJASL/matlab.voronoiSegmentation.git>
 
-red = X(:,:,1);
-green = X(:,:,2);
-
-f = fspecial('gaussian',[5 5],1);
-
-filtRed = imfilter(red,f);
-filtGreen = imfilter(green,f);
-
-levRed = multithresh(filtRed,2);
-levGreen = multithresh(filtGreen,2);
-
-plainRed = binaryFromLevels(filtRed, levRed);
-plainGreen = binaryFromLevels(filtGreen, levGreen);
-
-% Postprocessing of binary levels
-plainGreen = imfill(plainGreen,'holes');
-se = strel('disk',3);
-plainRed = imopen(plainRed,se);
+[plainRed, plainGreen] = simpleClumpsSegmentation(X);
 
 % Find and place fake red cells. 
 [fakeRed, ~, fakeAtt] = findMissingNuclei(plainRed, plainGreen);
@@ -42,7 +25,6 @@ dataLa = dataL;
 if nargout > 1
     labAtt = xatt;
     labAtt.numCells = length(datta.labels);
-    labAtt.threslevs = levRed;
     labAtt.labels = datta.labels;
     labAtt.voroninspace = datta.Vimage;
     labAtt.dnumArtificial = fakeAtt.numArtificial;
