@@ -17,6 +17,6 @@ simpleGreen = binaryFromLevels(filtGreen, levGreen);
 % Postprocessing of binary levels
 simpleGreen = imfill(simpleGreen,'holes');
 seR = strel('disk',3);
-seG = strel('diamond',3);
+seG = strel('sphere',3);
 simpleRed = imopen(simpleRed,seR);
 simpleGreen = imopen(simpleGreen,seG);
